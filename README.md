@@ -1,8 +1,8 @@
-###Currency Exchange
+### Currency Exchange
 
 <img src="demo.gif" alt="Demo" title="Demo" width="300"/>
 
-#####Installation
+##### Installation
 
 1. Run `npm install` to install npm packages.
 2. Go to `ios` directory with `cd ios` command.
