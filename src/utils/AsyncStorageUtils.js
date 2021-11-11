@@ -23,11 +23,22 @@ const getStoredData = async key => {
 const removeStoredData = async key => {
   try {
     await AsyncStorage.removeItem(key);
-    return true;
   } catch (e) {
     console.log(e);
-    return false;
   }
 };
 
-export {setStoredData, getStoredData, removeStoredData};
+const isKeyExist = async key => {
+  try {
+    let value = await AsyncStorage.getItem(key);
+    if (value != null) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export {setStoredData, getStoredData, removeStoredData, isKeyExist};

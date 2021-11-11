@@ -6,6 +6,10 @@ import Header from './src/components/Header';
 import configureStore from './src/redux/reducers/configureStore';
 import {Provider} from 'react-redux';
 
+import {LogBox} from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
+
 const store = configureStore();
 
 const App = () => {

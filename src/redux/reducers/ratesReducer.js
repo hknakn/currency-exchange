@@ -18,11 +18,10 @@ const rates = (state = initialState, action) => {
         isFetching: true,
       };
     case GET_CURRENCY_RATES_SUCCESS:
-      console.log({data: action.data});
       return {
         ...state,
         isFetching: false,
-        rates: action.data,
+        rates: action.data.data,
       };
     case GET_CURRENCY_RATES_FAIL:
       return {

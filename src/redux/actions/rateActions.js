@@ -1,18 +1,15 @@
-import {API_KEY, URL} from '../../constants/api';
+import {URL} from '../../constants/api';
 import {
   GET_CURRENCY_RATES_PROGRESS,
   GET_CURRENCY_RATES_SUCCESS,
   GET_CURRENCY_RATES_FAIL,
 } from './actionTypes';
 
-const getCurrencyRates = () => async (dispatch, getState) => {
-  console.log('burda2');
+const getCurrencyRates = baseCurrency => async dispatch => {
   dispatch(getCurrencyRatesProgress());
 
   try {
-    console.log(URL + '/latest' + API_KEY);
-    const response = await fetch(URL + '/latest' + API_KEY + '&format=1');
-    console.log({response});
+    const response = await fetch(URL + 'base_currency=' + baseCurrency);
     const data = await response.json();
     dispatch(getCurrencyRatesSuccess(data));
   } catch (error) {

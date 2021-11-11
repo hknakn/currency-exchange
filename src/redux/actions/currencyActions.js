@@ -5,8 +5,18 @@ const setSelectedCurrency = selectedCurrency => ({
   payload: selectedCurrency,
 });
 
+const setExchangeCurrency = exchangeCurrency => ({
+  type: actionTypes.SET_EXCHANGE_CURRENCY,
+  payload: exchangeCurrency,
+});
+
 const setCurrencyAmount = amount => ({
   type: actionTypes.SET_CURRENCY_AMOUNT,
+  payload: amount,
+});
+
+const setExchangeAmount = amount => ({
+  type: actionTypes.SET_EXCHANGE_AMOUNT,
   payload: amount,
 });
 
@@ -15,4 +25,10 @@ const setAllCurrenciesAndAmount = currencies => ({
   payload: currencies,
 });
 
-export {setSelectedCurrency, setCurrencyAmount, setAllCurrenciesAndAmount};
+export {
+  setSelectedCurrency,
+  setCurrencyAmount,
+  setAllCurrenciesAndAmount,
+  setExchangeCurrency,
+  setExchangeAmount,
+};

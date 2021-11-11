@@ -1,20 +1,24 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Modal} from 'react-native';
+import {View, Text, TouchableOpacity, Modal} from 'react-native';
 import currencies from '../../constants/currencies';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
 import {useDispatch} from 'react-redux';
-import {setSelectedCurrency} from '../../redux/actions/currencyActions';
+import {
+  setExchangeCurrency,
+  setSelectedCurrency,
+} from '../../redux/actions/currencyActions';
+import {styles} from './styles';
 
 const CurrencyModal = props => {
-  const {modalVisible, setModalVisible} = props;
+  const {modalVisible, setModalVisible, isExchangeCard} = props;
   const dispatch = useDispatch();
 
   const onCurrencySelected = key => {
     setModalVisible(false);
-    dispatch(setSelectedCurrency(key));
+    if (isExchangeCard) {
+      dispatch(setExchangeCurrency(key));
+    } else {
+      dispatch(setSelectedCurrency(key));
+    }
   };
 
   return (
@@ -53,51 +57,3 @@ const CurrencyModal = props => {
 };
 
 export default CurrencyModal;
-
-const styles = StyleSheet.create({
-  container: {
-    height: hp('35%'),
-    marginTop: 'auto',
-    backgroundColor: '#E5E5E5',
-    alignItems: 'center',
-    paddingTop: hp('1.5%'),
-  },
-  divider: {
-    backgroundColor: '#A9AAB2',
-    height: hp('0.5%'),
-    width: wp('25%'),
-    borderRadius: hp('100%'),
-    marginBottom: hp('1.5%'),
-  },
-  currenciesContainer: {
-    marginTop: hp('2%'),
-    width: wp('80%'),
-    borderColor: '#A9AAB2',
-    backgroundColor: '#fff',
-    borderWidth: hp('0.05%'),
-    borderRadius: hp('1.5%'),
-  },
-  currencyButton: {
-    height: hp('5%'),
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  currencyDivider: {
-    backgroundColor: '#A9AAB2',
-    height: hp('0.1%'),
-    width: wp('80%'),
-  },
-  closeButton: {
-    marginTop: hp('4%'),
-    height: hp('5%'),
-    width: wp('30%'),
-    marginVertical: wp('2%'),
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: hp('0.05%'),
-    borderColor: '#A9AAB2',
-    borderRadius: hp('1.5%'),
-  },
-  closeButtonText: {},
-});
