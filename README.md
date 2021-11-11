@@ -1,6 +1,6 @@
 ###Currency Exchange
 
-![Demo Video](demo.gif)
+<img src="demo.gif" alt="Demo" title="Demo" width="300"/>
 
 #####Installation
 
