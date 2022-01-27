@@ -1,4 +1,4 @@
-### Currency Exchange
+### Currency Exchange App
 
 ##### This is a simple currency exchange application. 
 - Using freecurrencyapi.net api to get current currency rates. 
